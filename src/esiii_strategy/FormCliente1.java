@@ -50,20 +50,20 @@ public class FormCliente1 extends javax.swing.JFrame {
         cidade = new javax.swing.JTextField();
         label_Cidade = new javax.swing.JLabel();
         label_Titulo = new javax.swing.JLabel();
-        salvar = new javax.swing.JButton();
-        Parentesco1 = new javax.swing.JLabel();
-        parestenco1 = new javax.swing.JComboBox<>();
+        abelParentesco1 = new javax.swing.JLabel();
+        Parentesco1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         NomeDependente1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Parentesco2 = new javax.swing.JLabel();
-        parestenco2 = new javax.swing.JComboBox<>();
+        labelParentesco2 = new javax.swing.JLabel();
+        Parentesco2 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         NomeDependente2 = new javax.swing.JTextField();
         Label_CEP = new javax.swing.JLabel();
         cep = new javax.swing.JTextField();
         LabelResultado = new javax.swing.JLabel();
+        salvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,22 +103,17 @@ public class FormCliente1 extends javax.swing.JFrame {
 
         label_Cidade.setText("Cidade");
 
+        label_Titulo.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         label_Titulo.setText("Cadastro de Cliente");
+        label_Titulo.setToolTipText("");
 
-        salvar.setText("Salvar");
-        salvar.addActionListener(new java.awt.event.ActionListener() {
+        abelParentesco1.setText("Parentesco");
+
+        Parentesco1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não tem dependente", "Filho(a)", "Cônjuge", "Mãe", "Pai" }));
+        Parentesco1.setSelectedIndex(-1);
+        Parentesco1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarActionPerformed(evt);
-            }
-        });
-
-        Parentesco1.setText("Parentesco");
-
-        parestenco1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não tem dependente", "Filho(a)", "Cônjuge", "Mãe", "Pai" }));
-        parestenco1.setSelectedIndex(-1);
-        parestenco1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                parestenco1ActionPerformed(evt);
+                Parentesco1ActionPerformed(evt);
             }
         });
 
@@ -128,13 +123,13 @@ public class FormCliente1 extends javax.swing.JFrame {
 
         jLabel3.setText("Nome:");
 
-        Parentesco2.setText("Parentesco");
+        labelParentesco2.setText("Parentesco");
 
-        parestenco2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não tem dependente", "Filho(a)", "Cônjuge", "Mãe", "Pai" }));
-        parestenco2.setSelectedIndex(-1);
-        parestenco2.addActionListener(new java.awt.event.ActionListener() {
+        Parentesco2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não tem dependente", "Filho(a)", "Cônjuge", "Mãe", "Pai" }));
+        Parentesco2.setSelectedIndex(-1);
+        Parentesco2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                parestenco2ActionPerformed(evt);
+                Parentesco2ActionPerformed(evt);
             }
         });
 
@@ -148,29 +143,20 @@ public class FormCliente1 extends javax.swing.JFrame {
 
         LabelResultado.setForeground(new java.awt.Color(204, 0, 51));
 
+        salvar.setText("Salvar");
+        salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(label_Titulo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(salvar)
-                        .addGap(92, 92, 92)
-                        .addComponent(LabelResultado)))
-                .addContainerGap(271, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(label_rua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label_Num)
-                        .addGap(110, 110, 110))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,65 +165,80 @@ public class FormCliente1 extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(label_CPF)
-                                .addGap(18, 18, 18)
+                                .addGap(33, 33, 33)
                                 .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(NomeDependente2))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(NomeDependente2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(Parentesco2)
+                                            .addComponent(labelParentesco2)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(parestenco2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(Parentesco2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(Parentesco1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(parestenco1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(abelParentesco1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(Parentesco1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(254, 254, 254))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(NomeDependente1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(NomeDependente1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Label_CEP)
-                                .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_Estado)
+                            .addComponent(label_Cidade)
+                            .addComponent(Label_CEP))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(estado)
+                            .addComponent(cidade))
+                        .addGap(48, 48, 48))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_Bairro)
+                            .addComponent(label_rua))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label_Estado)
-                                    .addComponent(label_Cidade))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(estado)
-                                    .addComponent(cidade)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(label_Nome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nome))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(label_Bairro)
-                                .addGap(9, 9, 9)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(rua)
-                                        .addGap(48, 48, 48)
-                                        .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(bairro, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(48, 48, 48))))
+                                .addComponent(rua)
+                                .addGap(39, 39, 39)
+                                .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bairro))
+                        .addGap(18, 18, 18)
+                        .addComponent(label_Num)
+                        .addGap(110, 110, 110))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label_Nome)
+                        .addGap(18, 18, 18)
+                        .addComponent(nome)
+                        .addGap(42, 42, 42))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(LabelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(salvar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label_Titulo)
+                .addGap(109, 109, 109))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(label_Titulo)
-                .addGap(27, 27, 27)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_Nome))
@@ -281,46 +282,37 @@ public class FormCliente1 extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Parentesco1)
-                    .addComponent(parestenco1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(abelParentesco1)
+                    .addComponent(Parentesco1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(NomeDependente2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Parentesco2)
-                    .addComponent(parestenco2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(salvar)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LabelResultado)
-                        .addGap(30, 30, 30))))
+                    .addComponent(labelParentesco2)
+                    .addComponent(Parentesco2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(LabelResultado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(salvar)
+                .addGap(11, 11, 11))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 546, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -331,8 +323,8 @@ public class FormCliente1 extends javax.swing.JFrame {
         this.Label_CEP = Label_CEP;
         this.NomeDependente1 = NomeDependente1;
         this.NomeDependente2 = NomeDependente2;
-        this.Parentesco1 = Parentesco1;
-        this.Parentesco2 = Parentesco2;
+        this.abelParentesco1 = Parentesco1;
+        this.labelParentesco2 = Parentesco2;
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;
@@ -353,8 +345,8 @@ public class FormCliente1 extends javax.swing.JFrame {
         this.label_rua = label_rua;
         this.nome = nome;
         this.numero = numero;
-        this.parestenco1 = parestenco1;
-        this.parestenco2 = parestenco2;
+        this.Parentesco1 = parestenco1;
+        this.Parentesco2 = parestenco2;
         this.rua = rua;
         this.salvar = salvar;
     }
@@ -374,16 +366,29 @@ public class FormCliente1 extends javax.swing.JFrame {
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         // TODO add your handling code here:
         ControleCliente controle = new ControleCliente();
-        controle.SalvarDados();
+        Cliente cliente = new Cliente();
+        cliente.setNome(this.nome.getText());
+        cliente.setCpf(Integer.parseInt(this.cpf.getText()));
+        cliente.getEndereco().getEstado().setNomeEstado(this.estado.getText());
+        cliente.getEndereco().getCidade().setNomeCidade(this.cidade.toString()); 
+        cliente.getEndereco().setBairro(this.bairro.getText());
+        cliente.getEndereco().setNumero(Integer.parseInt(this.numero.getText()));
+        cliente.getEndereco().setLogradouro(this.rua.getText());
+        cliente.getEndereco().setCEP(Integer.parseInt(this.cep.getText()));
+        cliente.getDependente1().getParentesco().setGrauParentesco(this.Parentesco1.getSelectedItem().toString());
+        cliente.getDependente2().setNome(this.Parentesco2.getSelectedItem().toString());
+        cliente.getDependente2().getParentesco().setGrauParentesco(this.Parentesco2.getSelectedItem().toString());
+        this.setLabelResultado("Salvo com Sucesso! :)");
+        controle.SalvarDados(cliente);
     }//GEN-LAST:event_salvarActionPerformed
 
-    private void parestenco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parestenco1ActionPerformed
+    private void Parentesco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Parentesco1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_parestenco1ActionPerformed
+    }//GEN-LAST:event_Parentesco1ActionPerformed
 
-    private void parestenco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parestenco2ActionPerformed
+    private void Parentesco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Parentesco2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_parestenco2ActionPerformed
+    }//GEN-LAST:event_Parentesco2ActionPerformed
 
     private void cepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepActionPerformed
         // TODO add your handling code here:
@@ -429,8 +434,9 @@ public class FormCliente1 extends javax.swing.JFrame {
     private javax.swing.JLabel Label_CEP;
     private javax.swing.JTextField NomeDependente1;
     private javax.swing.JTextField NomeDependente2;
-    private javax.swing.JLabel Parentesco1;
-    private javax.swing.JLabel Parentesco2;
+    private javax.swing.JComboBox<String> Parentesco1;
+    private javax.swing.JComboBox<String> Parentesco2;
+    private javax.swing.JLabel abelParentesco1;
     private javax.swing.JTextField bairro;
     private javax.swing.JTextField cep;
     private javax.swing.JTextField cidade;
@@ -441,6 +447,7 @@ public class FormCliente1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelParentesco2;
     private javax.swing.JLabel label_Bairro;
     private javax.swing.JLabel label_CPF;
     private javax.swing.JLabel label_Cidade;
@@ -451,8 +458,6 @@ public class FormCliente1 extends javax.swing.JFrame {
     private javax.swing.JLabel label_rua;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField numero;
-    private javax.swing.JComboBox<String> parestenco1;
-    private javax.swing.JComboBox<String> parestenco2;
     private javax.swing.JTextField rua;
     private javax.swing.JButton salvar;
     // End of variables declaration//GEN-END:variables
@@ -480,20 +485,20 @@ public class FormCliente1 extends javax.swing.JFrame {
     public void setNomeDependente2(javax.swing.JTextField NomeDependente2) {
         this.NomeDependente2 = NomeDependente2;
     }
-    public javax.swing.JLabel getParentesco1() {
-        return Parentesco1;
+    public javax.swing.JLabel getLabelParentesco1() {
+        return abelParentesco1;
     }
 
-    public void setParentesco1(javax.swing.JLabel Parentesco1) {
-        this.Parentesco1 = Parentesco1;
+    public void setLabelParentesco1(javax.swing.JLabel Parentesco1) {
+        this.abelParentesco1 = Parentesco1;
     }
 
-    public javax.swing.JLabel getParentesco2() {
-        return Parentesco2;
+    public javax.swing.JLabel getLabelParentesco2() {
+        return labelParentesco2;
     }
 
-    public void setParentesco2(javax.swing.JLabel Parentesco2) {
-        this.Parentesco2 = Parentesco2;
+    public void setLabelParentesco2(javax.swing.JLabel Parentesco2) {
+        this.labelParentesco2 = Parentesco2;
     }
 
     public javax.swing.JTextField getBairro() {
@@ -656,20 +661,20 @@ public class FormCliente1 extends javax.swing.JFrame {
         this.numero = numero;
     }
 
-    public String getParestenco1() {
-        return parestenco1.getSelectedItem().toString();
+    public String getParentesco1() {
+        return Parentesco1.getSelectedItem().toString();
     }
 
-    public void setParestenco1(javax.swing.JComboBox<String> parestenco1) {
-        this.parestenco1 = parestenco1;
+    public void setParentesco1(javax.swing.JComboBox<String> parestenco1) {
+        this.Parentesco1 = parestenco1;
     }
 
-    public String getParestenco2() {
-        return parestenco2.getSelectedItem().toString();
+    public String getParentesco2() {
+        return Parentesco2.getSelectedItem().toString();
     }
 
-    public void setParestenco2(javax.swing.JComboBox<String> parestenco2) {
-        this.parestenco2 = parestenco2;
+    public void setParentesco2(javax.swing.JComboBox<String> parestenco2) {
+        this.Parentesco2 = parestenco2;
     }
 
     public String getRua() {

@@ -9,15 +9,15 @@ package esiii_strategy;
  *
  * @author mayarasantos
  */
-public class Cliente {
+public class Cliente extends EntidadeDominio{
     
     private 
         String nome;
-        int cpf;
-        double credito;
-        Endereco endereco;
-        Dependente dependente1;
-        Dependente dependente2;  
+        private int cpf;
+        private double credito;
+        private Endereco endereco;
+        private Dependente dependente1;
+        private Dependente dependente2;  
 
     public String getNome() {
         return nome;
@@ -42,6 +42,40 @@ public class Cliente {
     public void setCredito(double credito) {
         this.credito = credito;
     }
+
+    public Endereco getEndereco() {
+        if (endereco == null )
+            endereco = new Endereco();
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Dependente getDependente1() {
+        if (dependente1 == null) {
+            dependente1 = new Dependente();
+        }
+        return dependente1;
+    }
+
+    public void setDependente1(Dependente dependente1) {
+        this.dependente1 = dependente1;
+    }
+
+    public Dependente getDependente2() {
+        if (dependente2 == null) {
+            dependente2 = new Dependente();
+        }
+        return dependente2;
+    }
+
+    public void setDependente2(Dependente dependente2) {
+        this.dependente2 = dependente2;
+    }
+    
+    
     
     
     

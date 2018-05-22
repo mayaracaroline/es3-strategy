@@ -5,17 +5,10 @@
  */
 package esiii_strategy;
 
-import java.time.Clock;
-
 /**
  *
  * @author mayarasantos
  */
-public class ControleCliente {
-    
-    void SalvarDados(EntidadeDominio entidade){
-        Cliente cliente = (Cliente) entidade;
-      
-        System.out.println("Salvo com sucesso");
-    }
+public abstract class EntidadeDominio {
+    private int id;    
 }

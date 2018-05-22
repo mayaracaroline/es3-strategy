@@ -20,6 +20,9 @@ public class Endereco {
             private int CEP;    
 
     public Cidade getCidade() {
+        if (cidade == null) {
+            cidade = new Cidade();
+        }
         return cidade;
     }
 
@@ -28,6 +31,9 @@ public class Endereco {
     }
 
     public Estado getEstado() {
+        if (estado == null) {
+            estado = new Estado();
+        }
         return estado;
     }
 

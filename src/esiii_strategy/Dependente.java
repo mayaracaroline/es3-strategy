@@ -14,6 +14,9 @@ public class Dependente {
     private String nome;
     
     public Parentesco getParentesco() {
+        if(parentesco == null) {
+            parentesco = new Parentesco();
+        }
         return parentesco;
     }
 
