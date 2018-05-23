@@ -7,6 +7,7 @@ package esiii_strategy;
 
 import java.time.Clock;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,16 +17,15 @@ import java.util.List;
 public class ControleCliente {
     
     void SalvarDadosCliente(StringBuilder dados){
-        String a = dados.toString();
-        String[] dadosCli;
-        ArrayList<String> lista = new ArrayList<String>();
-        dadosCli = a.split("\n");
-        for(String i : dadosCli) {
-            lista.add(i);
-        }
+        String[] dadosCli = dados.toString().split("\n");
+        ArrayList<String> lista = new ArrayList<>();
+        
+        lista.addAll(Arrays.asList(dadosCli));
+        
+        System.out.println("---- Lista -----");
+        System.out.println(lista);
         
         Cliente cliente = new Cliente();
-        System.out.println(dadosCli[0]);
         System.out.println("Salvo com sucesso");
     }
 }

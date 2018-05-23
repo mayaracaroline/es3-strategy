@@ -382,7 +382,6 @@ public class FormCliente1 extends javax.swing.JFrame {
         dadosCliente.append(this.NomeDependente2.getText()).append("\n");
         dadosCliente.append(this.Parentesco2.getSelectedItem().toString()).append("\n");
        
-        System.out.println(dadosCliente);
 //        Cliente cliente = new Cliente();
 //        cliente.setNome(this.nome.getText());
 //        cliente.setCpf(Integer.parseInt(this.cpf.getText()));
