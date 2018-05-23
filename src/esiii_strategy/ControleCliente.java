@@ -6,6 +6,8 @@
 package esiii_strategy;
 
 import java.time.Clock;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,9 +15,17 @@ import java.time.Clock;
  */
 public class ControleCliente {
     
-    void SalvarDados(EntidadeDominio entidade){
-        Cliente cliente = (Cliente) entidade;
-      
+    void SalvarDadosCliente(StringBuilder dados){
+        String a = dados.toString();
+        String[] dadosCli;
+        ArrayList<String> lista = new ArrayList<String>();
+        dadosCli = a.split("\n");
+        for(String i : dadosCli) {
+            lista.add(i);
+        }
+        
+        Cliente cliente = new Cliente();
+        System.out.println(dadosCli[0]);
         System.out.println("Salvo com sucesso");
     }
 }

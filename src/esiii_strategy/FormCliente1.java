@@ -5,6 +5,8 @@
  */
 package esiii_strategy;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -14,7 +16,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author santo
+ * @author mayarasantos
  */
 public class FormCliente1 extends javax.swing.JFrame {
 
@@ -366,20 +368,35 @@ public class FormCliente1 extends javax.swing.JFrame {
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         // TODO add your handling code here:
         ControleCliente controle = new ControleCliente();
-        Cliente cliente = new Cliente();
-        cliente.setNome(this.nome.getText());
-        cliente.setCpf(Integer.parseInt(this.cpf.getText()));
-        cliente.getEndereco().getEstado().setNomeEstado(this.estado.getText());
-        cliente.getEndereco().getCidade().setNomeCidade(this.cidade.toString()); 
-        cliente.getEndereco().setBairro(this.bairro.getText());
-        cliente.getEndereco().setNumero(Integer.parseInt(this.numero.getText()));
-        cliente.getEndereco().setLogradouro(this.rua.getText());
-        cliente.getEndereco().setCEP(Integer.parseInt(this.cep.getText()));
-        cliente.getDependente1().getParentesco().setGrauParentesco(this.Parentesco1.getSelectedItem().toString());
-        cliente.getDependente2().setNome(this.Parentesco2.getSelectedItem().toString());
-        cliente.getDependente2().getParentesco().setGrauParentesco(this.Parentesco2.getSelectedItem().toString());
+        StringBuilder dadosCliente = new StringBuilder();
+        dadosCliente.append(this.nome.getText()).append("\n");
+        dadosCliente.append(this.cpf.getText()).append("\n");
+        dadosCliente.append(this.estado.getText()).append("\n");
+        dadosCliente.append(this.cidade.getText()).append("\n");
+        dadosCliente.append(this.bairro.getText()).append("\n");
+        dadosCliente.append(this.numero.getText()).append('\n');
+        dadosCliente.append(this.rua.getText()).append("\n");
+        dadosCliente.append(Integer.parseInt(this.cep.getText())).append("\n");
+        dadosCliente.append(this.NomeDependente1.getText()).append("\n");
+        dadosCliente.append(this.Parentesco1.getSelectedItem().toString()).append("\n");
+        dadosCliente.append(this.NomeDependente2.getText()).append("\n");
+        dadosCliente.append(this.Parentesco2.getSelectedItem().toString()).append("\n");
+       
+        System.out.println(dadosCliente);
+//        Cliente cliente = new Cliente();
+//        cliente.setNome(this.nome.getText());
+//        cliente.setCpf(Integer.parseInt(this.cpf.getText()));
+//        cliente.getEndereco().getEstado().setNomeEstado(this.estado.getText());
+//        cliente.getEndereco().getCidade().setNomeCidade(this.cidade.toString()); 
+//        cliente.getEndereco().setBairro(this.bairro.getText());
+//        cliente.getEndereco().setNumero(Integer.parseInt(this.numero.getText()));
+//        cliente.getEndereco().setLogradouro(this.rua.getText());
+//        cliente.getEndereco().setCEP(Integer.parseInt(this.cep.getText()));
+//        cliente.getDependente1().getParentesco().setGrauParentesco(this.Parentesco1.getSelectedItem().toString());
+//        cliente.getDependente2().setNome(this.Parentesco2.getSelectedItem().toString());
+//        cliente.getDependente2().getParentesco().setGrauParentesco(this.Parentesco2.getSelectedItem().toString());
         this.setLabelResultado("Salvo com Sucesso! :)");
-        controle.SalvarDados(cliente);
+        controle.SalvarDadosCliente(dadosCliente);
     }//GEN-LAST:event_salvarActionPerformed
 
     private void Parentesco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Parentesco1ActionPerformed
